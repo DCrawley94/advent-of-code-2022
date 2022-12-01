@@ -4,16 +4,19 @@ from heapq import nlargest
 # PART 1
 
 def find_most_calorific_elf(path_to_data):
-    '''Finds the elf in the group that is packing the most calorific content'''
+    '''
+    Finds the elf in the group that is packing the most calorific content.
+    Returns valua: Total calories of most calorific elf, list of fomatted calories for each elf
+    '''
 
     with open(path_to_data, encoding='utf8') as f:
         elf_calorie_strings = f.read().split('\n\n')
 
-        formatted_calorie_data = [[int(calorie_count) for calorie_count in elf.split(
-            '\n')] for elf in elf_calorie_strings]
+    formatted_calorie_data = [[int(calorie_count) for calorie_count in elf.split(
+        '\n')] for elf in elf_calorie_strings]
 
-        calorie_counts = [sum(calorie_group)
-                          for calorie_group in formatted_calorie_data]
+    calorie_counts = [sum(calorie_group)
+                      for calorie_group in formatted_calorie_data]
 
     return max(calorie_counts), calorie_counts
 
