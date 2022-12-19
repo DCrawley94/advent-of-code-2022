@@ -1,5 +1,6 @@
 from src.day2.rock_paper_scissors import RockPaperScissors
 
+
 class TestRockPaperScissors:
     test_game = RockPaperScissors('test/test-inputs/day2.txt')
 
@@ -23,24 +24,10 @@ class TestRockPaperScissors:
         assert self.test_game.get_second_part_outcome("B Z") == 9
         assert self.test_game.get_second_part_outcome("C X") == 2
         assert self.test_game.get_second_part_outcome("C Y") == 6
-        assert self.test_game.get_second_part_outcome("C Z") == 7  
-        
-    
+        assert self.test_game.get_second_part_outcome("C Z") == 7
+
     def test_calculate_scores(self):
         self.test_game.calculate_scores()
 
         assert self.test_game.get_score(1) == 15
         assert self.test_game.get_score(2) == 12
-
-
-
-
-
-
-
-
-
-
-
-
-    
