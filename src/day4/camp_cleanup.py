@@ -1,5 +1,6 @@
 import re
 
+
 def get_shift_data(file_path):
     with open(file_path) as f:
         lines = f.read().split('\n')
@@ -10,23 +11,26 @@ def get_shift_data(file_path):
         for pair_shifts in pairs_data:
             shift_times = [int(time) for time in pair_shifts]
 
-            shift_one_diagram = make_shift_diagram(shift_times[0], shift_times[1])
-            shift_two_diagram = make_shift_diagram(shift_times[2], shift_times[3])
+            shift_one_diagram = make_shift_diagram(
+                shift_times[0], shift_times[1])
+            shift_two_diagram = make_shift_diagram(
+                shift_times[2], shift_times[3])
 
             shift_data.append([shift_one_diagram, shift_two_diagram])
 
-    
     return shift_data
+
 
 def make_shift_diagram(start, end):
     diagram = ""
-    for i in range(1,10):
+    for i in range(1, 10):
         if i >= start and i <= end:
             diagram += str(i)
         else:
             diagram += '.'
-    
+
     return diagram
+
 
 def shifts_collide(shift1, shift2):
     # print('test', shift1, shift2)
@@ -42,8 +46,10 @@ def shifts_collide(shift1, shift2):
 
 
 def shift_check(shift_data):
-    innefficient_elf_pairs = [shift for shift in shift_data if shifts_collide(shift[0], shift[1])]
-    
+    innefficient_elf_pairs = [
+        shift for shift in shift_data if shifts_collide(
+            shift[0], shift[1])]
+
     return len(innefficient_elf_pairs)
 
 

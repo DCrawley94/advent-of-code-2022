@@ -35,15 +35,16 @@ class RockPaperScissors:
         return self.REAL_STRAT_POINTS[round]
 
     def calculate_scores(self):
-        self.first_score = sum([self.get_first_part_outcome(round) for round in self.strategy])
-        self.second_score = sum([self.get_second_part_outcome(round) for round in self.strategy])
+        self.first_score = sum([self.get_first_part_outcome(round)
+                               for round in self.strategy])
+        self.second_score = sum(
+            [self.get_second_part_outcome(round) for round in self.strategy])
 
     def get_score(self, part):
         if part == 1:
             return self.first_score
         else:
             return self.second_score
-
 
 
 solution = RockPaperScissors("raw_data/day2.txt")

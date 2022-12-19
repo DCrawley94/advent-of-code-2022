@@ -11,7 +11,7 @@ class ElfRucksack:
     def solve_part_one(self):
         common_items = []
         for rucksack_contents in self.rucksacks:
-            middle_index = int(len(rucksack_contents)/2)
+            middle_index = int(len(rucksack_contents) / 2)
             compartment_one = rucksack_contents[:middle_index]
             compartment_two = rucksack_contents[middle_index:]
 
@@ -20,16 +20,26 @@ class ElfRucksack:
 
             common_items.append(common_item)
 
-        return reduce(lambda priority_sum, item: priority_sum + self.priorities[item], common_items, 0)
+        return reduce(
+            lambda priority_sum,
+            item: priority_sum +
+            self.priorities[item],
+            common_items,
+            0)
 
     def solve_part_two(self):
-        elf_groups = [self.rucksacks[i:i+3]
+        elf_groups = [self.rucksacks[i:i + 3]
                       for i in range(0, len(self.rucksacks), 3)]
         badges = []
         for elf1, elf2, elf3 in elf_groups:
             badges.extend(list(set(elf1).intersection(elf2, elf3)))
 
-        return reduce(lambda priority_sum, item: priority_sum + self.priorities[item], badges, 0)
+        return reduce(
+            lambda priority_sum,
+            item: priority_sum +
+            self.priorities[item],
+            badges,
+            0)
 
     def get_solutions(self):
         return self.solve_part_one(), self.solve_part_two()

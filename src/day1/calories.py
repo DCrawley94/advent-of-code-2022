@@ -13,6 +13,7 @@ from heapq import nlargest
 
 #     return elf_calories
 
+
 def calculate_elf_calories(path_to_data):
     '''
     Finds the elf in the group that is packing the most calorific content.
@@ -30,7 +31,6 @@ def calculate_elf_calories(path_to_data):
 
     return calorie_counts
 
-    
 
 #  PART 2
 
